@@ -20,7 +20,8 @@ print(logo)
 time = datetime.datetime.now().strftime('%d %B %Y @ %H:%M')
 
 print("Checked on: ",time)
-# Original Code
+
+#Get Global Statistics
 
 response = requests.get(url)
 
@@ -35,7 +36,6 @@ print(gdeaths.get_text())
 grecovered = gdeaths.find_next_sibling('div', id="maincounter-wrap")
 print(grecovered.get_text())
 
-# Till here
 
 web = request.urlopen(url).read().decode('utf8')
 soup = BeautifulSoup(web, 'html.parser')
@@ -44,6 +44,8 @@ soup = BeautifulSoup(web, 'html.parser')
 table = soup.find("table")
 body = table.find('tbody')
 rows = body.find_all('tr')
+
+#Get Country Wise Statistics
 
 print("\n\n")
 
